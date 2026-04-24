@@ -90,6 +90,37 @@
   }
   .filter-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,.2); }
   .filter-btn.active { outline: 3px solid #fff; outline-offset: 2px; }
+  
+  /* ── SORT DROPDOWN ── */
+  .sort-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .sort-container label {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: .85rem;
+    color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .sort-dropdown {
+    border: 2px solid var(--red);
+    cursor: pointer;
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: .78rem;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    color: var(--red);
+    background: #fff;
+    transition: all .15s;
+    box-shadow: 0 2px 6px rgba(0,0,0,.08);
+  }
+  .sort-dropdown:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,.12); }
 
   /* ── GENRE SECTIONS ── */
   .genre-section {
@@ -342,6 +373,15 @@
   <span>Filter:</span>
 </div>
 
+<!-- SORT -->
+<div class="sort-container">
+  <label for="sort-select">Sort:</label>
+  <select id="sort-select" class="sort-dropdown">
+    <option value="a-z">A to Z</option>
+    <option value="year">Year</option>
+  </select>
+</div>
+
 <!-- CONTENT -->
 <div id="sections-container"></div>
 
@@ -456,6 +496,7 @@ async function loadTVData() {
     generateFilterButtons();
     
     // Initialize the UI after data is loaded
+    setupSortDropdown();
     renderSections('all');
   } catch (error) {
     console.error('Error loading TV data:', error);
@@ -583,6 +624,16 @@ const SECTION_ORDER = CANONICAL_PRIORITY.map(cat => ({
 
 // ── RENDER ──
 let activeFilter = "all";
+let activeSort = "genre";
+
+// Setup sort dropdown
+function setupSortDropdown() {
+  const sortSelect = document.getElementById('sort-select');
+  sortSelect.addEventListener('change', (e) => {
+    activeSort = e.target.value;
+    renderSections(activeFilter);
+  });
+}
 
 function renderSections(filter) {
   const container = document.getElementById('sections-container');
@@ -594,6 +645,17 @@ function renderSections(filter) {
     // Apply genre filter
     if (filter !== 'all') {
       sectionItems = sectionItems.filter(d => d.genres.includes(filter));
+    }
+    
+    // Apply sort
+    if (activeSort === 'a-z') {
+      sectionItems.sort((a, b) => a.title.localeCompare(b.title));
+    } else if (activeSort === 'year') {
+      sectionItems.sort((a, b) => {
+        const yearA = parseInt(a.year.split('–')[0]);
+        const yearB = parseInt(b.year.split('–')[0]);
+        return yearA - yearB;
+      });
     }
     
     if (sectionItems.length === 0) return;
