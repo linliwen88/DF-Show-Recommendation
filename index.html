@@ -517,13 +517,8 @@ async function loadTVData() {
 
 // Update genre button states based on available shows in current filter context
 function updateGenreButtonStates() {
-  // Get shows that match current filters (DF Fresh + selected genres)
+  // Get shows that match current filters (selected genres, but NOT DF Fresh)
   let availableShows = TV_DATA.filter(show => {
-    // Check DF Fresh filter
-    if (showDFOnly && show['df-fresh'] !== 'True') {
-      return false;
-    }
-    
     // Check selected genres - only include shows that have ALL selected genres
     if (selectedGenres.size > 0) {
       return Array.from(selectedGenres).every(genre => show.genres.includes(genre));
@@ -545,6 +540,13 @@ function updateGenreButtonStates() {
       btn.disabled = true;
     }
   });
+  
+  // Check if DF Fresh button should be disabled
+  const dfFreshBtn = document.querySelector('[data-filter="df-fresh"]');
+  if (dfFreshBtn) {
+    const hasDFFresh = availableShows.some(show => show['df-fresh'] === 'True');
+    dfFreshBtn.disabled = !hasDFFresh;
+  }
 }
 
 // Setup filter event listeners
