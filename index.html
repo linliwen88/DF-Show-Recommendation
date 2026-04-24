@@ -223,6 +223,11 @@
     bottom: -8px; right: -8px;
     width: 52px; height: 52px;
   }
+  .poster-wrap .df-certified-badge {
+    position: absolute;
+    bottom: -8px; left: -8px;
+    width: 52px; height: 52px;
+  }
   .poster-wrap.no-poster {
     background: #cd9494;
   }
@@ -238,7 +243,7 @@
 
   /* ── AWARD BADGE SVG ── */
   .badge-winner { filter: drop-shadow(0 2px 4px rgba(0,0,0,.3)); }
-  .badge-nominee { filter: drop-shadow(0 2px 4px rgba(0,0,0,.25)); }
+  .badge-df-certified { filter: drop-shadow(0 2px 4px rgba(0,0,0,.3)); }
 
   /* ── MODAL ── */
   .modal-overlay {
@@ -357,12 +362,12 @@
   <h3>Genre Legend</h3>
   <div class="legend-badge-row">
     <div class="legend-badge-item">
-      <svg width="32" height="32" viewBox="0 0 52 52"><circle cx="26" cy="26" r="25" fill="#f5f0e8" stroke="#c8b89a" stroke-width="2"/><text x="26" y="20" text-anchor="middle" font-size="8" font-weight="900" fill="#c0392b" font-family="sans-serif">OSCAR</text><text x="26" y="30" text-anchor="middle" font-size="7" font-weight="900" fill="#c0392b" font-family="sans-serif">NOMINEE</text><text x="26" y="43" text-anchor="middle" font-size="14">🏆</text></svg>
-      Nominee — 1+ Oscar nominations
+      <svg width="32" height="32" viewBox="0 0 52 52"><circle cx="26" cy="26" r="25" fill="#f5f0e8" stroke="#D4A017" stroke-width="2.5"/><text x="26" y="18" text-anchor="middle" font-size="7" font-weight="900" fill="#b8860b" font-family="sans-serif" letter-spacing="1">MULTI</text><text x="26" y="28" text-anchor="middle" font-size="6.5" font-weight="900" fill="#b8860b" font-family="sans-serif" letter-spacing="1">WINNER</text><text x="26" y="43" text-anchor="middle" font-size="14">🏆</text></svg>
+       Multi winner
     </div>
     <div class="legend-badge-item">
-      <svg width="32" height="32" viewBox="0 0 52 52"><circle cx="26" cy="26" r="25" fill="#f5f0e8" stroke="#D4A017" stroke-width="2.5"/><text x="26" y="20" text-anchor="middle" font-size="8" font-weight="900" fill="#b8860b" font-family="sans-serif">OSCAR</text><text x="26" y="30" text-anchor="middle" font-size="7" font-weight="900" fill="#b8860b" font-family="sans-serif">WINNER</text><text x="26" y="43" text-anchor="middle" font-size="14">🏆</text></svg>
-      Winner — 1+ Oscar wins
+      <svg width="32" height="32" viewBox="0 0 52 52"><circle cx="26" cy="26" r="25" fill="#f5f0e8" stroke="#FFA500" stroke-width="2.5"/><text x="26" y="18" text-anchor="middle" font-size="7" font-weight="900" fill="#FF8C00" font-family="sans-serif" letter-spacing="1">DF</text><text x="26" y="28" text-anchor="middle" font-size="6.5" font-weight="900" fill="#FF8C00" font-family="sans-serif" letter-spacing="1">FRESH</text><text x="26" y="43" text-anchor="middle" font-size="14">🐟  </text></svg>
+       DF Certified Fresh
     </div>
   </div>
 </div>
@@ -460,6 +465,14 @@ function generateFilterButtons() {
   allBtn.textContent = 'All';
   filterBar.appendChild(allBtn);
   
+  // Add DF Fresh button
+  const dfBtn = document.createElement('button');
+  dfBtn.className = 'filter-btn';
+  dfBtn.dataset.filter = 'df-fresh';
+  dfBtn.style.background = '#FFA500';
+  dfBtn.textContent = 'DF Fresh';
+  filterBar.appendChild(dfBtn);
+  
   // Add genre buttons
   GENRES.forEach(genre => {
     const btn = document.createElement('button');
@@ -485,7 +498,8 @@ async function loadTVData() {
       poster: item.poster,
       genres: item.genre || [],
       year: item.year,
-      awards: item.awards || []
+      awards: item.awards || [],
+      'df-fresh': item['df-fresh']
     }));
     
     // Generate legend and filter buttons
@@ -509,8 +523,20 @@ function setupFilters() {
       if (filter === 'all') {
         // Clear all filters
         selectedGenres.clear();
+        showDFOnly = false;
         document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
+      } else if (filter === 'df-fresh') {
+        // Toggle DF Fresh filter
+        const allBtn = document.querySelector('[data-filter="all"]');
+        allBtn.classList.remove('active');
+        showDFOnly = !showDFOnly;
+        
+        if (showDFOnly) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
       } else {
         // Remove "All" button active state
         const allBtn = document.querySelector('[data-filter="all"]');
@@ -601,40 +627,24 @@ function getPrimaryCanonical(rawGenres) {
   return canonical[0] || "Drama";
 }
 
-function hasOscarWin(awards) {
-  return awards.some(a => {
-    const lower = a.toLowerCase();
-    return (lower.includes('emmy') || lower.includes('golden globe') || lower.includes('oscar') || lower.includes('sag') || lower.includes('bafta') || lower.includes('peabody') || lower.includes('annie') || lower.includes('hugo') || lower.includes('saturn') || lower.includes('crunchyroll') || lower.includes('writers guild') || lower.includes('david di') || lower.includes('animation kobe') || lower.includes('tca award') || lower.includes('royal television') || lower.includes('glaad') || lower.includes('people')) 
-      && !lower.startsWith('nominated');
-  });
-}
-
-function hasOscarNom(awards) {
-  return awards.some(a => a.toLowerCase().startsWith('nominated'));
-}
-
 function awardBadge(awards) {
-  if (!awards || awards.length === 0) return '';
-  const isWinner = hasOscarWin(awards);
-  const isNominee = hasOscarNom(awards);
-  if (isWinner) {
-    return `<svg class="award-badge badge-winner" width="52" height="52" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="26" cy="26" r="25" fill="#f5f0e8" stroke="#D4A017" stroke-width="2.5"/>
-      <text x="26" y="18" text-anchor="middle" font-size="7" font-weight="900" fill="#b8860b" font-family="sans-serif" letter-spacing="1">OSCAR</text>
-      <text x="26" y="28" text-anchor="middle" font-size="6.5" font-weight="900" fill="#b8860b" font-family="sans-serif" letter-spacing="1">WINNER</text>
-      <text x="26" y="43" text-anchor="middle" font-size="16">🏆</text>
-    </svg>`;
-  } else if (isNominee) {
-    return `<svg class="award-badge badge-nominee" width="52" height="52" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="26" cy="26" r="25" fill="#f5f0e8" stroke="#aaaaaa" stroke-width="2"/>
-      <text x="26" y="18" text-anchor="middle" font-size="7" font-weight="900" fill="#666" font-family="sans-serif" letter-spacing="1">OSCAR</text>
-      <text x="26" y="28" text-anchor="middle" font-size="5.5" font-weight="900" fill="#666" font-family="sans-serif" letter-spacing="1">NOMINEE</text>
-      <text x="26" y="43" text-anchor="middle" font-size="16">🏆</text>
-    </svg>`;
-  }
-  return '';
+  if (!awards || awards.length < 4) return '';
+  return `<svg class="award-badge badge-winner" width="52" height="52" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="26" cy="26" r="25" fill="#f5f0e8" stroke="#D4A017" stroke-width="2.5"/>
+    <text x="26" y="18" text-anchor="middle" font-size="7" font-weight="900" fill="#b8860b" font-family="sans-serif" letter-spacing="1">MULTI</text>
+    <text x="26" y="28" text-anchor="middle" font-size="6.5" font-weight="900" fill="#b8860b" font-family="sans-serif" letter-spacing="1">WINNER</text>
+    <text x="26" y="43" text-anchor="middle" font-size="16">🏆</text>
+  </svg>`;
 }
-
+function dfCertifiedBadge(dfFresh) {
+  if (!dfFresh || dfFresh !== 'True') return '';
+  return `<svg class="df-certified-badge badge-df-certified" width="52" height="52" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="26" cy="26" r="25" fill="#f5f0e8" stroke="#FFA500" stroke-width="2.5"/>
+    <text x="26" y="18" text-anchor="middle" font-size="7" font-weight="900" fill="#FF8C00" font-family="sans-serif" letter-spacing="1">DF</text>
+    <text x="26" y="28" text-anchor="middle" font-size="6.5" font-weight="900" fill="#FF8C00" font-family="sans-serif" letter-spacing="1">FRESH</text>
+    <text x="26" y="43" text-anchor="middle" font-size="16">🐟</text>
+  </svg>`;
+}
 const SECTION_ORDER = CANONICAL_PRIORITY.map(cat => ({
   key: cat, label: cat, color: CANONICAL_COLORS[cat],
 }));
@@ -642,6 +652,7 @@ const SECTION_ORDER = CANONICAL_PRIORITY.map(cat => ({
 // ── RENDER ──
 let selectedGenres = new Set();
 let activeSort = "a-z";
+let showDFOnly = false;
 
 // Setup sort dropdown
 function setupSortDropdown() {
@@ -656,8 +667,8 @@ function renderSections() {
   const container = document.getElementById('sections-container');
   container.innerHTML = '';
 
-  // If no genres selected, show organized by genre
-  if (selectedGenres.size === 0) {
+  // If no genres selected and not DF only, show organized by genre
+  if (selectedGenres.size === 0 && !showDFOnly) {
     SECTION_ORDER.forEach(section => {
       let sectionItems = TV_DATA.filter(d => getPrimaryCanonical(d.genres) === section.key);
       
@@ -695,9 +706,19 @@ function renderSections() {
       });
     });
   } else {
-    // Show only shows that have ALL selected genres
+    // Show filtered shows
     let filteredShows = TV_DATA.filter(show => {
-      return Array.from(selectedGenres).every(genre => show.genres.includes(genre));
+      // Check DF Fresh filter
+      if (showDFOnly && show['df-fresh'] !== 'True') {
+        return false;
+      }
+      
+      // Check genre filters
+      if (selectedGenres.size > 0) {
+        return Array.from(selectedGenres).every(genre => show.genres.includes(genre));
+      }
+      
+      return true;
     });
     
     // Apply sort
@@ -715,7 +736,7 @@ function renderSections() {
       const sec = document.createElement('div');
       sec.className = 'genre-section';
       
-      // Create header with selected genres
+      // Create header with selected genres and DF Fresh indicator
       const genreHeadersHtml = Array.from(selectedGenres).map(genre => {
         const genreObj = GENRES.find(g => g.name === genre);
         const color = genreObj ? genreObj.color : '#C0392B';
@@ -727,10 +748,17 @@ function renderSections() {
         `;
       }).join('');
       
+      const dfHeaderHtml = showDFOnly ? `
+        <div class="genre-label-pill" style="background:#FFA500">
+          <div class="dot"></div>
+          DF Fresh
+        </div>
+      ` : '';
+      
       sec.innerHTML = `
         <div class="genre-header">
           <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
-            ${genreHeadersHtml}
+            ${genreHeadersHtml}${dfHeaderHtml}
           </div>
           <span class="genre-count">${filteredShows.length} show${filteredShows.length !== 1 ? 's' : ''}</span>
         </div>
@@ -748,13 +776,15 @@ function renderSections() {
 
 function renderCard(grid, show) {
   const badge = awardBadge(show.awards);
+  const dfBadge = dfCertifiedBadge(show['df-fresh']);
   const card = document.createElement('div');
   card.className = 'card';
   const posterClass = show.poster ? '' : ' no-poster';
   const posterHtml = `
     <div class="poster-wrap${posterClass}">
       ${show.poster ? `<img src="${show.poster}" alt="${show.title}" loading="lazy">` : ''}
-      ${show.poster ? badge : ''}
+      ${badge}
+      ${dfBadge}
     </div>
   `;
   card.innerHTML = `
