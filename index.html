@@ -178,7 +178,7 @@
     padding-top: 145%;
     border-radius: 10px;
     overflow: hidden;
-    background: #c8a09a;
+    background: #b59894;
     box-shadow: inset 0 0 0 2px rgba(0,0,0,.08);
   }
   .poster-wrap img {
@@ -192,6 +192,9 @@
     position: absolute;
     bottom: -8px; right: -8px;
     width: 52px; height: 52px;
+  }
+  .poster-wrap.no-poster {
+    background: #cd9494;
   }
 
   .card-meta {
@@ -237,7 +240,7 @@
     background: none; border: none; cursor: pointer;
     font-size: 1.4rem; color: #7a3a33; font-weight: 900; line-height: 1;
   }
-  .modal-inner { display: flex; gap: 18px; }
+  .modal-inner { display: flex; gap: 18px; align-items: center; }
   .modal-poster {
     width: 110px; flex-shrink: 0;
     border-radius: 10px; overflow: hidden;
@@ -365,7 +368,6 @@ const GENRES = [
   { name: 'Action', color: '#C0392B' },
   { name: 'Adventure', color: '#FF6E40' },
   { name: 'Animation', color: '#9CCC65' },
-  { name: 'Biography', color: '#7B68EE' },
   { name: 'Comedy', color: '#E8B84B' },
   { name: 'Crime', color: '#C2547A' },
   { name: 'Drama', color: '#7B4FA6' },
@@ -477,7 +479,6 @@ const GENRE_MAP = {
   "Action":      "Action",
   "Adventure":   "Adventure",
   "Animation":   "Animation",
-  "Biography":   "Biography",
   "Comedy":      "Comedy",
   "Crime":       "Crime",
   "Drama":       "Drama",
@@ -504,7 +505,6 @@ const CANONICAL_PRIORITY = [
   "Action",
   "Adventure",
   "Animation",
-  "Biography",
   "Comedy",
   "Crime",
   "Drama",
@@ -618,12 +618,16 @@ function renderSections(filter) {
       const badge = awardBadge(show.awards);
       const card = document.createElement('div');
       card.className = 'card';
+      const posterClass = show.poster ? '' : ' no-poster';
+      const posterHtml = `
+        <div class="poster-wrap${posterClass}">
+          ${show.poster ? `<img src="${show.poster}" alt="${show.title}" loading="lazy">` : ''}
+          ${show.poster ? badge : ''}
+        </div>
+      `;
       card.innerHTML = `
         <div class="card-title">${show.title}</div>
-        <div class="poster-wrap">
-          <img src="${show.poster}" alt="${show.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/300x430/c8a09a/ffffff?text=No+Image'">
-          ${badge}
-        </div>
+        ${posterHtml}
         <div class="card-meta">${show.year}</div>
       `;
       card.addEventListener('click', () => openModal(show));
@@ -634,7 +638,13 @@ function renderSections(filter) {
 
 // ── MODAL ──
 function openModal(show) {
-  document.getElementById('modal-img').src = show.poster;
+  const modalPoster = document.querySelector('.modal-poster');
+  if (show.poster) {
+    document.getElementById('modal-img').src = show.poster;
+    modalPoster.style.display = 'block';
+  } else {
+    modalPoster.style.display = 'none';
+  }
   document.getElementById('modal-title').textContent = show.title;
   document.getElementById('modal-year').textContent = show.year;
   
