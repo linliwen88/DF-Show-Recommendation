@@ -20,7 +20,6 @@
     --color-documentary: #2C5F8A;
     --color-drama:     #7B4FA6;
     --color-fantasy:   #4A7EC7;
-    --color-holiday:   #4CAF50;
     --color-horror:    #9E9E9E;
     --color-musical:   #2E8B77;
     --color-thriller:  #C2547A;
@@ -415,10 +414,8 @@ const GENRES = [
   { name: 'Fantasy', color: '#42A5F5' },
   { name: 'Game Show', color: '#FFD54F' },
   { name: 'History', color: '#A1887F' },
-  { name: 'Holiday', color: '#4CAF50' },
   { name: 'Horror', color: '#757575' },
   { name: 'Mini-Series', color: '#BA68C8' },
-  { name: 'Music', color: '#FF9800' },
   { name: 'Musical', color: '#2E8B77' },
   { name: 'Mystery', color: '#6D4C41' },
   { name: 'Romance', color: '#EC407A' },
@@ -497,7 +494,7 @@ async function loadTVData() {
     
     // Initialize the UI after data is loaded
     setupSortDropdown();
-    renderSections('all');
+    renderSections();
   } catch (error) {
     console.error('Error loading TV data:', error);
   }
@@ -506,11 +503,35 @@ async function loadTVData() {
 // Setup filter event listeners
 function setupFilters() {
   document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      activeFilter = btn.dataset.filter;
-      renderSections(activeFilter);
+    btn.addEventListener('click', (e) => {
+      const filter = btn.dataset.filter;
+      
+      if (filter === 'all') {
+        // Clear all filters
+        selectedGenres.clear();
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      } else {
+        // Remove "All" button active state
+        const allBtn = document.querySelector('[data-filter="all"]');
+        allBtn.classList.remove('active');
+        
+        // Toggle current genre
+        if (selectedGenres.has(filter)) {
+          selectedGenres.delete(filter);
+        } else {
+          selectedGenres.add(filter);
+        }
+        
+        // Update button active state
+        if (selectedGenres.has(filter)) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      }
+      
+      renderSections();
     });
   });
 }
@@ -527,10 +548,8 @@ const GENRE_MAP = {
   "Fantasy":     "Fantasy",
   "Game Show":   "Game Show",
   "History":     "History",
-  "Holiday":     "Holiday",
   "Horror":      "Horror",
   "Mini-Series": "Mini-Series",
-  "Music":       "Music",
   "Musical":     "Musical",
   "Mystery":     "Mystery",
   "Romance":     "Romance",
@@ -553,10 +572,8 @@ const CANONICAL_PRIORITY = [
   "Fantasy",
   "Game Show",
   "History",
-  "Holiday",
   "Horror",
   "Mini-Series",
-  "Music",
   "Musical",
   "Mystery",
   "Romance",
@@ -623,79 +640,130 @@ const SECTION_ORDER = CANONICAL_PRIORITY.map(cat => ({
 }));
 
 // ── RENDER ──
-let activeFilter = "all";
-let activeSort = "genre";
+let selectedGenres = new Set();
+let activeSort = "a-z";
 
 // Setup sort dropdown
 function setupSortDropdown() {
   const sortSelect = document.getElementById('sort-select');
   sortSelect.addEventListener('change', (e) => {
     activeSort = e.target.value;
-    renderSections(activeFilter);
+    renderSections();
   });
 }
 
-function renderSections(filter) {
+function renderSections() {
   const container = document.getElementById('sections-container');
   container.innerHTML = '';
 
-  SECTION_ORDER.forEach(section => {
-    let sectionItems = TV_DATA.filter(d => getPrimaryCanonical(d.genres) === section.key);
-    
-    // Apply genre filter
-    if (filter !== 'all') {
-      sectionItems = sectionItems.filter(d => d.genres.includes(filter));
-    }
+  // If no genres selected, show organized by genre
+  if (selectedGenres.size === 0) {
+    SECTION_ORDER.forEach(section => {
+      let sectionItems = TV_DATA.filter(d => getPrimaryCanonical(d.genres) === section.key);
+      
+      // Apply sort
+      if (activeSort === 'a-z') {
+        sectionItems.sort((a, b) => a.title.localeCompare(b.title));
+      } else if (activeSort === 'year') {
+        sectionItems.sort((a, b) => {
+          const yearA = parseInt(a.year.split('–')[0]);
+          const yearB = parseInt(b.year.split('–')[0]);
+          return yearA - yearB;
+        });
+      }
+      
+      if (sectionItems.length === 0) return;
+
+      const gridId = 'grid-' + section.key.replace(/[^a-z0-9]/gi, '_');
+      const sec = document.createElement('div');
+      sec.className = 'genre-section';
+      sec.innerHTML = `
+        <div class="genre-header">
+          <div class="genre-label-pill" style="background:${section.color}">
+            <div class="dot"></div>
+            ${section.label}
+          </div>
+          <span class="genre-count">${sectionItems.length} show${sectionItems.length !== 1 ? 's' : ''}</span>
+        </div>
+        <div class="cards-grid" id="${gridId}"></div>
+      `;
+      container.appendChild(sec);
+
+      const grid = sec.querySelector('#' + gridId);
+      sectionItems.forEach(show => {
+        renderCard(grid, show);
+      });
+    });
+  } else {
+    // Show only shows that have ALL selected genres
+    let filteredShows = TV_DATA.filter(show => {
+      return Array.from(selectedGenres).every(genre => show.genres.includes(genre));
+    });
     
     // Apply sort
     if (activeSort === 'a-z') {
-      sectionItems.sort((a, b) => a.title.localeCompare(b.title));
+      filteredShows.sort((a, b) => a.title.localeCompare(b.title));
     } else if (activeSort === 'year') {
-      sectionItems.sort((a, b) => {
+      filteredShows.sort((a, b) => {
         const yearA = parseInt(a.year.split('–')[0]);
         const yearB = parseInt(b.year.split('–')[0]);
         return yearA - yearB;
       });
     }
     
-    if (sectionItems.length === 0) return;
-
-    const gridId = 'grid-' + section.key.replace(/[^a-z0-9]/gi, '_');
-    const sec = document.createElement('div');
-    sec.className = 'genre-section';
-    sec.innerHTML = `
-      <div class="genre-header">
-        <div class="genre-label-pill" style="background:${section.color}">
-          <div class="dot"></div>
-          ${section.label}
+    if (filteredShows.length > 0) {
+      const sec = document.createElement('div');
+      sec.className = 'genre-section';
+      
+      // Create header with selected genres
+      const genreHeadersHtml = Array.from(selectedGenres).map(genre => {
+        const genreObj = GENRES.find(g => g.name === genre);
+        const color = genreObj ? genreObj.color : '#C0392B';
+        return `
+          <div class="genre-label-pill" style="background:${color}">
+            <div class="dot"></div>
+            ${genre}
+          </div>
+        `;
+      }).join('');
+      
+      sec.innerHTML = `
+        <div class="genre-header">
+          <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+            ${genreHeadersHtml}
+          </div>
+          <span class="genre-count">${filteredShows.length} show${filteredShows.length !== 1 ? 's' : ''}</span>
         </div>
-        <span class="genre-count">${sectionItems.length} show${sectionItems.length !== 1 ? 's' : ''}</span>
-      </div>
-      <div class="cards-grid" id="${gridId}"></div>
-    `;
-    container.appendChild(sec);
+        <div class="cards-grid" id="grid-filtered"></div>
+      `;
+      container.appendChild(sec);
+      
+      const grid = sec.querySelector('#grid-filtered');
+      filteredShows.forEach(show => {
+        renderCard(grid, show);
+      });
+    }
+  }
+}
 
-    const grid = sec.querySelector('#' + gridId);
-    sectionItems.forEach(show => {
-      const badge = awardBadge(show.awards);
-      const card = document.createElement('div');
-      card.className = 'card';
-      const posterClass = show.poster ? '' : ' no-poster';
-      const posterHtml = `
-        <div class="poster-wrap${posterClass}">
-          ${show.poster ? `<img src="${show.poster}" alt="${show.title}" loading="lazy">` : ''}
-          ${show.poster ? badge : ''}
-        </div>
-      `;
-      card.innerHTML = `
-        <div class="card-title">${show.title}</div>
-        ${posterHtml}
-        <div class="card-meta">${show.year}</div>
-      `;
-      card.addEventListener('click', () => openModal(show));
-      grid.appendChild(card);
-    });
-  });
+function renderCard(grid, show) {
+  const badge = awardBadge(show.awards);
+  const card = document.createElement('div');
+  card.className = 'card';
+  const posterClass = show.poster ? '' : ' no-poster';
+  const posterHtml = `
+    <div class="poster-wrap${posterClass}">
+      ${show.poster ? `<img src="${show.poster}" alt="${show.title}" loading="lazy">` : ''}
+      ${show.poster ? badge : ''}
+    </div>
+  `;
+  card.innerHTML = `
+    <div class="card-title">${show.title}</div>
+    ${posterHtml}
+    <div class="card-meta">${show.year}</div>
+  `;
+  card.addEventListener('click', () => openModal(show));
+  grid.appendChild(card);
 }
 
 // ── MODAL ──

@@ -123,7 +123,7 @@
       "Drama",
       "Thriller"
     ],
-    "poster": "./posters/brooklyn-nine-nine.webp",
+    "poster": "./posters/breaking-bad.webp",
     "imdb_id": "tt0903747",
     "awards": [
       "Emmy Award – Outstanding Drama Series (2013, 2014)",
@@ -142,7 +142,7 @@
       "Comedy",
       "Crime"
     ],
-    "poster": "./posters/chernobyl.webp",
+    "poster": "./posters/brooklyn-nine-nine.webp",
     "imdb_id": "tt2467372",
     "awards": [
       "Golden Globe – Best Comedy Series (2014)",
@@ -159,7 +159,7 @@
       "Thriller",
       "Mini-Series"
     ],
-    "poster": "./posters/breaking-bad.webp",
+    "poster": "./posters/chernobyl.webp",
     "imdb_id": "tt7366338",
     "awards": [
       "Emmy Award – Outstanding Limited Series (2019)",
@@ -291,7 +291,7 @@
     "year": "2008",
     "genre": [
       "Comedy",
-      "Music",
+      "Musical",
       "Sci-Fi"
     ],
     "poster": "",
