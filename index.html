@@ -87,8 +87,9 @@
     transition: transform .15s, opacity .15s, box-shadow .15s;
     box-shadow: 0 2px 6px rgba(0,0,0,.15);
   }
-  .filter-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,.2); }
+  .filter-btn:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,.2); }
   .filter-btn.active { outline: 3px solid #fff; outline-offset: 2px; }
+  .filter-btn:disabled { opacity: 0.4; cursor: not-allowed; background-color: #999 !important; }
   
   /* ── SORT DROPDOWN ── */
   .sort-container {
@@ -225,7 +226,7 @@
   }
   .poster-wrap .df-certified-badge {
     position: absolute;
-    bottom: -8px; left: -8px;
+    top: auto; bottom: -8px; left: -8px;
     width: 52px; height: 52px;
   }
   .poster-wrap.no-poster {
@@ -319,7 +320,7 @@
     border-radius: 16px;
     padding: 18px 20px;
     margin-bottom: 28px;
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     gap: 10px 20px;
     align-items: center;
@@ -366,7 +367,7 @@
        Multi winner
     </div>
     <div class="legend-badge-item">
-      <svg width="32" height="32" viewBox="0 0 52 52"><circle cx="26" cy="26" r="25" fill="#f5f0e8" stroke="#FFA500" stroke-width="2.5"/><text x="26" y="18" text-anchor="middle" font-size="7" font-weight="900" fill="#FF8C00" font-family="sans-serif" letter-spacing="1">DF</text><text x="26" y="28" text-anchor="middle" font-size="6.5" font-weight="900" fill="#FF8C00" font-family="sans-serif" letter-spacing="1">FRESH</text><text x="26" y="43" text-anchor="middle" font-size="14">🐟  </text></svg>
+      <img src="./DF-fresh-badge.png" alt="DF Fresh" width="32" height="32">
        DF Certified Fresh
     </div>
   </div>
@@ -514,10 +515,45 @@ async function loadTVData() {
   }
 }
 
+// Update genre button states based on available shows in current filter context
+function updateGenreButtonStates() {
+  // Get shows that match current filters (DF Fresh + selected genres)
+  let availableShows = TV_DATA.filter(show => {
+    // Check DF Fresh filter
+    if (showDFOnly && show['df-fresh'] !== 'True') {
+      return false;
+    }
+    
+    // Check selected genres - only include shows that have ALL selected genres
+    if (selectedGenres.size > 0) {
+      return Array.from(selectedGenres).every(genre => show.genres.includes(genre));
+    }
+    
+    return true;
+  });
+  
+  // For each genre button, check if any available shows have that genre
+  GENRES.forEach(genre => {
+    const btn = document.querySelector(`[data-filter="${genre.name}"]`);
+    if (!btn) return;
+    
+    const hasGenre = availableShows.some(show => show.genres.includes(genre.name));
+    
+    if (hasGenre) {
+      btn.disabled = false;
+    } else {
+      btn.disabled = true;
+    }
+  });
+}
+
 // Setup filter event listeners
 function setupFilters() {
   document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
+      // Skip if button is disabled
+      if (btn.disabled) return;
+      
       const filter = btn.dataset.filter;
       
       if (filter === 'all') {
@@ -638,12 +674,7 @@ function awardBadge(awards) {
 }
 function dfCertifiedBadge(dfFresh) {
   if (!dfFresh || dfFresh !== 'True') return '';
-  return `<svg class="df-certified-badge badge-df-certified" width="52" height="52" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="26" cy="26" r="25" fill="#f5f0e8" stroke="#FFA500" stroke-width="2.5"/>
-    <text x="26" y="18" text-anchor="middle" font-size="7" font-weight="900" fill="#FF8C00" font-family="sans-serif" letter-spacing="1">DF</text>
-    <text x="26" y="28" text-anchor="middle" font-size="6.5" font-weight="900" fill="#FF8C00" font-family="sans-serif" letter-spacing="1">FRESH</text>
-    <text x="26" y="43" text-anchor="middle" font-size="16">🐟</text>
-  </svg>`;
+  return `<img src="./DF-fresh-badge.png" alt="DF Fresh" class="df-certified-badge badge-df-certified" width="52" height="52">`;
 }
 const SECTION_ORDER = CANONICAL_PRIORITY.map(cat => ({
   key: cat, label: cat, color: CANONICAL_COLORS[cat],
@@ -732,46 +763,49 @@ function renderSections() {
       });
     }
     
-    if (filteredShows.length > 0) {
-      const sec = document.createElement('div');
-      sec.className = 'genre-section';
-      
-      // Create header with selected genres and DF Fresh indicator
-      const genreHeadersHtml = Array.from(selectedGenres).map(genre => {
-        const genreObj = GENRES.find(g => g.name === genre);
-        const color = genreObj ? genreObj.color : '#C0392B';
-        return `
-          <div class="genre-label-pill" style="background:${color}">
-            <div class="dot"></div>
-            ${genre}
-          </div>
-        `;
-      }).join('');
-      
-      const dfHeaderHtml = showDFOnly ? `
-        <div class="genre-label-pill" style="background:#FFA500">
+    const sec = document.createElement('div');
+    sec.className = 'genre-section';
+    
+    // Create header with selected genres and DF Fresh indicator
+    const genreHeadersHtml = Array.from(selectedGenres).map(genre => {
+      const genreObj = GENRES.find(g => g.name === genre);
+      const color = genreObj ? genreObj.color : '#C0392B';
+      return `
+        <div class="genre-label-pill" style="background:${color}">
           <div class="dot"></div>
-          DF Fresh
+          ${genre}
         </div>
-      ` : '';
-      
-      sec.innerHTML = `
-        <div class="genre-header">
-          <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
-            ${genreHeadersHtml}${dfHeaderHtml}
-          </div>
-          <span class="genre-count">${filteredShows.length} show${filteredShows.length !== 1 ? 's' : ''}</span>
-        </div>
-        <div class="cards-grid" id="grid-filtered"></div>
       `;
-      container.appendChild(sec);
-      
+    }).join('');
+    
+    const dfHeaderHtml = showDFOnly ? `
+      <div class="genre-label-pill" style="background:#FFA500">
+        <div class="dot"></div>
+        DF Fresh
+      </div>
+    ` : '';
+    
+    sec.innerHTML = `
+      <div class="genre-header">
+        <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+          ${genreHeadersHtml}${dfHeaderHtml}
+        </div>
+        <span class="genre-count">${filteredShows.length} show${filteredShows.length !== 1 ? 's' : ''}</span>
+      </div>
+      <div class="cards-grid" id="grid-filtered"></div>
+    `;
+    container.appendChild(sec);
+    
+    if (filteredShows.length > 0) {
       const grid = sec.querySelector('#grid-filtered');
       filteredShows.forEach(show => {
         renderCard(grid, show);
       });
     }
   }
+  
+  // Update genre button states based on filtered shows
+  updateGenreButtonStates();
 }
 
 function renderCard(grid, show) {
