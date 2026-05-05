@@ -13,14 +13,13 @@
     "awards": [
       "Emmy Award – Outstanding Drama Series (2006)",
       "Golden Globe – Best Drama Series (2004)",
-      "Screen Actors Guild Award – Outstanding Drama Ensemble (2005)",
       "Emmy Award – Outstanding Lead Actor, Drama (Kiefer Sutherland, 2006)"
     ],
     "df-fresh": "True"
   },
   {
     "title": "Alice in Borderlands",
-    "year": "2020–2022",
+    "year": "2020–2025",
     "genre": [
       "Action",
       "Adventure",
@@ -30,10 +29,7 @@
     ],
     "poster": "./posters/alice-in-borderlands.jpg",
     "imdb_id": "tt10329614",
-    "awards": [
-      "Netflix Global Top 10 – #1 Non-English TV Show (2022)",
-      "Japanese Academy Prize consideration – Best Visual Effects"
-    ],
+    "awards": [],
     "df-fresh": "True"
   },
   {
@@ -47,9 +43,7 @@
     "poster": "./posters/archer.jpg",
     "imdb_id": "tt1486217",
     "awards": [
-      "Emmy Award – Outstanding Animated Program (2014, 2015, 2016)",
-      "Critics' Choice Television Award – Best Animated Series (2013)",
-      "TCA Award – Outstanding Achievement in Animation (2011)"
+      "Emmy Award – Outstanding Animated Program (2014, 2015, 2016)"
     ]
   },
   {
@@ -64,9 +58,7 @@
     "poster": "./posters/avatar-the-last-airbender.jpg",
     "imdb_id": "tt0417299",
     "awards": [
-      "Annie Award – Outstanding Animated Program (2007, 2008)",
-      "Primetime Emmy Award – Outstanding Animated Program (2006)",
-      "Peabody Award (2008)"
+      "Primetime Emmy Award – Outstanding Animated Program (2006)"
     ]
   },
   {
@@ -79,10 +71,27 @@
     "poster": "./posters/battlestar-galactica.jpg",
     "imdb_id": "tt0407362",
     "awards": [
-      "Peabody Award (2006)",
-      "Emmy Award – Outstanding Special Visual Effects (2005, 2007, 2008)",
-      "Saturn Award – Best Science Fiction Television Series (2005, 2007, 2009)",
-      "Hugo Award – Best Dramatic Presentation, Long Form (2006)"
+      "Emmy Award – Outstanding Special Visual Effects (2005, 2007, 2008)"
+    ]
+  },
+  {
+    "title": "The Beatles: Get Back",
+    "year": "2021",
+    "genre": [
+      "Documentary",
+      "Biography",
+      "History",
+      "Music",
+      "Mini-Series"
+    ],
+    "poster": "./posters/the-beatles-get-back.jpeg",
+    "imdb_id": "tt9735318",
+    "awards": [
+      "Emmy Award – Outstanding Documentary or Nonfiction Series (2022)",
+      "Emmy Award – Outstanding Directing, Documentary/Nonfiction Program (Peter Jackson, 2022)",
+      "Emmy Award – Outstanding Picture Editing, Nonfiction Program (2022)",
+      "Emmy Award – Outstanding Sound Editing, Nonfiction or Reality Program (2022)",
+      "Emmy Award – Outstanding Sound Mixing, Nonfiction or Reality Program (2022)"
     ]
   },
   {
@@ -97,8 +106,7 @@
     "poster": "./posters/ben-10.jpeg",
     "imdb_id": "tt0461116",
     "awards": [
-      "Emmy Award – Outstanding Special Class Animated Program (2008)",
-      "Kids' Choice Award – Favorite Cartoon (multiple years)"
+      "Emmy Award – Outstanding Special Class Animated Program (2008)"
     ]
   },
   {
@@ -113,9 +121,7 @@
     ],
     "poster": "./posters/bravestarr.jpg",
     "imdb_id": "tt0092342",
-    "awards": [
-      "No major award wins recorded"
-    ]
+    "awards": []
   },
   {
     "title": "Breaking Bad",
@@ -131,10 +137,7 @@
       "Emmy Award – Outstanding Drama Series (2013, 2014)",
       "Emmy Award – Outstanding Lead Actor, Drama (Bryan Cranston, 2008–2010, 2014)",
       "Golden Globe – Best Drama Series (2014)",
-      "Golden Globe – Best Lead Actor, Drama (Bryan Cranston, 2014)",
-      "Screen Actors Guild Award – Outstanding Drama Ensemble (2014)",
-      "Writers Guild Award – Best Drama Series (2013)",
-      "Peabody Award (2013)"
+      "Golden Globe – Best Lead Actor, Drama (Bryan Cranston, 2014)"
     ],
     "df-fresh": "True"
   },
@@ -149,8 +152,7 @@
     "imdb_id": "tt2467372",
     "awards": [
       "Golden Globe – Best Comedy Series (2014)",
-      "Golden Globe – Best Actor, Comedy (Andy Samberg, 2014)",
-      "Critics' Choice Television Award – Best Comedy Series (2014)"
+      "Golden Globe – Best Actor, Comedy (Andy Samberg, 2014)"
     ],
     "df-fresh": "True"
   },
@@ -169,10 +171,7 @@
       "Emmy Award – Outstanding Limited Series (2019)",
       "Emmy Award – Outstanding Directing, Limited Series (Johan Renck, 2019)",
       "Emmy Award – Outstanding Writing, Limited Series (Craig Mazin, 2019)",
-      "Golden Globe – Best Limited Series (2020)",
-      "BAFTA – Best Mini-Series (2020)",
-      "Peabody Award (2019)",
-      "Critics' Choice Award – Best Limited Series (2019)"
+      "Golden Globe – Best Limited Series (2020)"
     ]
   },
   {
@@ -188,21 +187,18 @@
     "poster": "./posters/star-wars-the-clone-wars.jpg",
     "imdb_id": "tt0458290",
     "awards": [
-      "Emmy Award – Outstanding Special Class Animated Program (2009)",
-      "Annie Award – Outstanding Achievement in Character Animation (2015)",
-      "Saturn Award – Best Animated Series (2009)"
+      "Emmy Award – Outstanding Special Class Animated Program (2009)"
     ]
   },
   {
     "title": "Chainsaw Man",
     "year": "2022-present",
     "genre": [
+      "Animation",
       "Action"
     ],
     "poster": "./posters/chainsaw-man.jpg",
-    "awards": [
-      "No major award wins recorded"
-    ]
+    "awards": []
   },
   {
     "title": "Craig of the Creek",
@@ -215,9 +211,7 @@
     ],
     "poster": "./posters/craig-of-the-creek.jpg",
     "imdb_id": "tt7687756",
-    "awards": [
-      "NAACP Image Award – Outstanding Children's Program (2020, 2021)"
-    ]
+    "awards": []
   },
   {
     "title": "Demon Slayer: Kimetsu no Yaiba",
@@ -230,11 +224,7 @@
     ],
     "poster": "./posters/demon-slayer.webp",
     "imdb_id": "tt9335498",
-    "awards": [
-      "Crunchyroll Anime Awards – Anime of the Year (2020, 2022)",
-      "Japan Academy Prize – Best Animation (2021, for the film Mugen Train)",
-      "Newtype Anime Awards – Best TV Anime (2019)"
-    ]
+    "awards": []
   },
   {
     "title": "Disenchantment",
@@ -255,12 +245,11 @@
     "title": "Dr. Stone",
     "year": "2019–present",
     "genre": [
+      "Animation",
       "Adventure"
     ],
     "poster": "./posters/dr-stone.jpg",
-    "awards": [
-      "No major award wins recorded"
-    ]
+    "awards": []
   },
   {
     "title": "Doctor Who",
@@ -272,12 +261,7 @@
     ],
     "poster": "./posters/doctor-who.jpg",
     "imdb_id": "tt0436992",
-    "awards": [
-      "BAFTA – Best Drama Series (2006)",
-      "Hugo Award – Best Dramatic Presentation, Short Form (2006, 2008, 2010)",
-      "National Television Award – Drama Performance (multiple years)",
-      "BAFTA Cymru – Best Drama Series (multiple wins)"
-    ]
+    "awards": []
   },
   {
     "title": "Dota: Dragon's Blood",
@@ -290,9 +274,7 @@
     ],
     "poster": "./posters/dota-dragons-blood.webp",
     "imdb_id": "tt14117116",
-    "awards": [
-      "No major award wins recorded"
-    ]
+    "awards": []
   },
   {
     "title": "Downton Abbey",
@@ -306,10 +288,7 @@
     "imdb_id": "tt1606375",
     "awards": [
       "Emmy Award – Outstanding Miniseries or Movie (2011, 2012)",
-      "Golden Globe – Best Miniseries or TV Movie (2012)",
-      "SAG Award – Outstanding Drama Ensemble (2012, 2013)",
-      "BAFTA – Best Drama Series (2011)",
-      "Guinness World Record – Most critically acclaimed English-language TV series (2011)"
+      "Golden Globe – Best Miniseries or TV Movie (2012)"
     ],
     "df-fresh": "True"
   },
@@ -324,8 +303,7 @@
     "poster": "./posters/dr-horribles-sing-along-blog.jpg",
     "imdb_id": "tt1227926",
     "awards": [
-      "Emmy Award – Outstanding Special Class – Short-format Live-Action Entertainment Programs (2009)",
-      "Hugo Award – Best Dramatic Presentation, Short Form (2009)"
+      "Emmy Award – Outstanding Special Class – Short-format Live-Action Entertainment Programs (2009)"
     ]
   },
   {
@@ -338,9 +316,7 @@
     ],
     "poster": "./posters/elementary.jpg",
     "imdb_id": "tt2191671",
-    "awards": [
-      "People's Choice Award – Favorite Network Sci-Fi/Fantasy TV Show (2015)"
-    ]
+    "awards": []
   },
   {
     "title": "Foundation",
@@ -351,10 +327,7 @@
     ],
     "poster": "./posters/foundation.webp",
     "imdb_id": "tt0804484",
-    "awards": [
-      "VES Award – Outstanding Visual Effects in a Photoreal Episode (2022)",
-      "Saturn Award – Best Science Fiction Television Series nomination (2022)"
-    ]
+    "awards": []
   },
   {
     "title": "Foyle's War",
@@ -367,10 +340,7 @@
       "War"
     ],
     "poster": "./posters/foyles-war.jpg",
-    "awards": [
-      "BAFTA – Best Actor nomination (Michael Kitchen, multiple years)",
-      "Broadcasting Press Guild Award – Best Drama Series (2003)"
-    ],
+    "awards": [],
     "df-fresh": "True"
   },
   {
@@ -383,10 +353,8 @@
     "poster": "./posters/friday-night-lights.webp",
     "imdb_id": "tt0758745",
     "awards": [
-      "Peabody Award (2007)",
       "Emmy Award – Outstanding Writing, Drama Series (2011)",
-      "Emmy Award – Outstanding Lead Actress, Drama (Connie Britton nomination, multiple)",
-      "Writers Guild Award – Best Drama Series (2007)"
+      "Emmy Award – Outstanding Lead Actress, Drama (Connie Britton nomination, multiple)"
     ]
   },
   {
@@ -400,37 +368,33 @@
     "imdb_id": "tt0108778",
     "awards": [
       "Emmy Award – Outstanding Comedy Series (2002)",
-      "Emmy Award – Outstanding Lead Actress, Comedy (Jennifer Aniston, 2002)",
-      "SAG Award – Outstanding Comedy Ensemble (multiple years)",
-      "People's Choice Award – Favorite TV Comedy (multiple years)"
+      "Emmy Award – Outstanding Lead Actress, Comedy (Jennifer Aniston, 2002)"
     ]
   },
   {
     "title": "Frieren",
     "year": "2023–present",
     "genre": [
+      "Animation",
       "Adventure"
     ],
     "poster": "./posters/frieren.jpg",
-    "awards": [
-      "No major award wins recorded"
-    ]
+    "awards": []
   },
   {
     "title": "Full Metal Alchemist Brotherhood",
     "year": "2009–2010",
     "genre": [
+      "Animation",
       "Action",
       "Adventure"
     ],
     "poster": "./posters/full-metal-alchemist-brotherhood.jpg",
-    "awards": [
-      "No major award wins recorded"
-    ]
+    "awards": []
   },
   {
     "title": "Futurama",
-    "year": "1999–2013",
+    "year": "1999–present",
     "genre": [
       "Animation",
       "Comedy",
@@ -439,9 +403,7 @@
     "poster": "./posters/futurama.jpg",
     "imdb_id": "tt0149460",
     "awards": [
-      "Emmy Award – Outstanding Animated Program (2000, 2001, 2002, 2003, 2011)",
-      "Annie Award – Outstanding Achievement in Animated Television (multiple years)",
-      "Writers Guild Award – Best Animation (2011)"
+      "Emmy Award – Outstanding Animated Program (2000, 2001, 2002, 2003, 2011)"
     ]
   },
   {
@@ -459,8 +421,6 @@
       "Emmy Award – Outstanding Drama Series (2015, 2016, 2018, 2019)",
       "Emmy Award – Most wins in a single year: 12 (2015), 38 total (all-time record)",
       "Golden Globe – Best Drama Series nomination (multiple years)",
-      "SAG Award – Outstanding Drama Ensemble (2016)",
-      "Producers Guild Award – Outstanding Producer, Dramatic Television (2015)",
       "Guinness World Record – Most Emmy wins for a drama series"
     ]
   },
@@ -475,8 +435,6 @@
     "poster": "./posters/gilmore-girls.webp",
     "imdb_id": "tt0238784",
     "awards": [
-      "Peabody Award (2002)",
-      "Humanitas Prize (2002)",
       "Emmy Award – Outstanding Writing, Drama (nomination)"
     ]
   },
@@ -509,10 +467,7 @@
     ],
     "poster": "./posters/homestar-runner.jpg",
     "imdb_id": "tt0339014",
-    "awards": [
-      "Webby Award – Best Humor Web Site (multiple years)",
-      "Webby Award – Best Use of Animation (2004)"
-    ]
+    "awards": []
   },
   {
     "title": "M*A*S*H",
@@ -527,9 +482,7 @@
     "awards": [
       "Emmy Award – Outstanding Comedy Series (multiple wins)",
       "Emmy Award – Outstanding Drama Series (crossover category wins)",
-      "Golden Globe – Best TV Series, Comedy or Musical (multiple wins)",
-      "Peabody Award",
-      "Series finale (Feb 28, 1983) still holds the record for most-watched US TV broadcast – 106 million viewers"
+      "Golden Globe – Best TV Series, Comedy or Musical (multiple wins)"
     ],
     "df-fresh": "True"
   },
@@ -542,9 +495,7 @@
     ],
     "poster": "./posters/mission-hill.webp",
     "imdb_id": "tt0200353",
-    "awards": [
-      "No major award wins recorded"
-    ]
+    "awards": []
   },
   {
     "title": "Mr. & Mrs. Smith",
@@ -558,35 +509,41 @@
     ],
     "poster": "./posters/mr-and-mrs-smith.jpg",
     "imdb_id": "tt14044212",
-    "awards": [
-      "Critics' Choice Television Award – Best Action Series (2024)",
-      "NAACP Image Award nomination – Outstanding Drama Series (2024)"
-    ],
+    "awards": [],
     "df-fresh": "True"
   },
   {
     "title": "Hunter X Hunter",
     "year": "2011–2014",
     "genre": [
+      "Animation",
       "Action",
       "Adventure",
       "Comedy"
     ],
     "poster": "./posters/hunter-x-hunter.jpg",
-    "awards": [
-      "No major award wins recorded"
-    ]
+    "awards": []
   },
   {
     "title": "Jujutsu Kaisen",
     "year": "2020-present",
     "genre": [
+      "Animation",
       "Action"
     ],
     "poster": "./posters/jujutsu-kaisen.png",
-    "awards": [
-      "No major award wins recorded"
-    ]
+    "awards": []
+  },
+  {
+    "title": "My Gimpy Life",
+    "year": "2011–present",
+    "genre": [
+      "Comedy",
+      "Web Series"
+    ],
+    "poster": "./posters/my-gimpy-life.jpg",
+    "imdb_id": "tt1980197",
+    "awards": []
   },
   {
     "title": "NCIS",
@@ -599,11 +556,7 @@
     ],
     "poster": "./posters/ncis.webp",
     "imdb_id": "tt0364845",
-    "awards": [
-      "People's Choice Award – Favorite Network TV Drama (multiple years)",
-      "Screen Actors Guild Award nomination – Outstanding Ensemble Drama",
-      "Longest-running scripted live-action US primetime TV show (as of 2023)"
-    ]
+    "awards": []
   },
   {
     "title": "Northern Exposure",
@@ -617,8 +570,7 @@
     "imdb_id": "tt0098878",
     "awards": [
       "Emmy Award – Outstanding Drama Series (1992)",
-      "Golden Globe – Best Television Series - Drama (1992, 1993)",
-      "Peabody Award (1992, 1993)"
+      "Golden Globe – Best Television Series - Drama (1992, 1993)"
     ]
   },
   {
@@ -633,11 +585,7 @@
     ],
     "poster": "./posters/one-piece.jpg",
     "imdb_id": "tt0388629",
-    "awards": [
-      "Guinness World Record – Most copies published for the same comic book series by a single author (500 million copies)",
-      "Tokyo International Anime Fair – Best TV Anime (multiple nominations)",
-      "Animation Kobe Award (2000)"
-    ]
+    "awards": []
   },
   {
     "title": "Ozark",
@@ -652,8 +600,7 @@
     "awards": [
       "Emmy Award – Outstanding Lead Actor, Drama (Jason Bateman, 2022)",
       "Emmy Award – Outstanding Supporting Actress, Drama (Julia Garner, 2019, 2020, 2022)",
-      "Emmy Award – Outstanding Directing, Drama (Jason Bateman, 2019)",
-      "SAG Award – Outstanding Female Actor, Drama (Julia Garner, 2020, 2022)"
+      "Emmy Award – Outstanding Directing, Drama (Jason Bateman, 2019)"
     ],
     "df-fresh": "True"
   },
@@ -667,9 +614,7 @@
     "poster": "./posters/red-dwarf.jpg",
     "imdb_id": "tt0094535",
     "awards": [
-      "BAFTA – Best Comedy (nomination)",
-      "International Emmy Award – Best Comedy (1994)",
-      "Royal Television Society Award – Best Comedy"
+      "International Emmy Award – Best Comedy (1994)"
     ]
   },
   {
@@ -684,9 +629,7 @@
     "poster": "./posters/rick-and-morty.webp",
     "imdb_id": "tt2861424",
     "awards": [
-      "Emmy Award – Outstanding Animated Program (2018, 2020, 2022)",
-      "Critics' Choice Television Award – Best Animated Series (2020, 2022)",
-      "Annie Award – Outstanding Achievement in General Audience Animated TV Production (2020)"
+      "Emmy Award – Outstanding Animated Program (2018, 2020, 2022)"
     ]
   },
   {
@@ -700,9 +643,7 @@
     ],
     "poster": "./posters/samurai-champloo.jpg",
     "imdb_id": "tt0421487",
-    "awards": [
-      "Animation Kobe Award – Best TV Animation nomination (2004)"
-    ]
+    "awards": []
   },
   {
     "title": "Schitt's Creek",
@@ -715,9 +656,7 @@
     "awards": [
       "Emmy Award – Outstanding Comedy Series (2020)",
       "Emmy Award – All major comedy acting categories (all 4, 2020 – historic first)",
-      "Golden Globe – Best Comedy Series (2021)",
-      "Critics' Choice Award – Best Comedy Series (2020)",
-      "SAG Award – Outstanding Comedy Ensemble (2020)"
+      "Golden Globe – Best Comedy Series (2021)"
     ],
     "df-fresh": "True"
   },
@@ -749,10 +688,7 @@
     "imdb_id": "tt11280740",
     "awards": [
       "Emmy Award – Outstanding Drama Series nomination (2022)",
-      "Emmy Award – Outstanding Directing, Drama (Ben Stiller, 2022)",
-      "Critics' Choice Award – Best Drama Series (2022)",
-      "SAG Award – Outstanding Ensemble, Drama nomination (2023)",
-      "AFI Award – TV Program of the Year (2022)"
+      "Emmy Award – Outstanding Directing, Drama (Ben Stiller, 2022)"
     ]
   },
   {
@@ -779,8 +715,7 @@
     "poster": "./posters/somebody-somewhere.jpg",
     "imdb_id": "tt13444798",
     "awards": [
-      "Emmy Award – Outstanding Lead Actress, Comedy (Bridget Everett, nomination 2023)",
-      "Peabody Award (2022)"
+      "Emmy Award – Outstanding Lead Actress, Comedy (Bridget Everett, nomination 2023)"
     ]
   },
   {
@@ -795,9 +730,7 @@
     "poster": "./posters/star-trek-deep-space-nine.webp",
     "imdb_id": "tt0106145",
     "awards": [
-      "Emmy Award – Outstanding Special Visual Effects (multiple wins)",
-      "Hugo Award – Best Dramatic Presentation, Short Form (1995)",
-      "Saturn Award – Best TV Presentation (multiple nominations)"
+      "Emmy Award – Outstanding Special Visual Effects (multiple wins)"
     ]
   },
   {
@@ -811,11 +744,7 @@
     ],
     "poster": "./posters/start-trek-strange-new-worlds.webp",
     "imdb_id": "tt12327578",
-    "awards": [
-      "Hugo Award – Best Dramatic Presentation, Short Form (2023)",
-      "Saturn Award – Best Science Fiction Television Series (2023)",
-      "Critics' Choice Award – Best Sci-Fi/Fantasy Series nomination (2023)"
-    ]
+    "awards": []
   },
   {
     "title": "Star Trek: The Next Generation",
@@ -829,9 +758,7 @@
     "poster": "./posters/star-trek-the-next-generation.jpg",
     "imdb_id": "tt0092455",
     "awards": [
-      "Emmy Award – Outstanding Dramatic Series (1994 – first genre show nominated)",
-      "Hugo Award – Best Dramatic Presentation (multiple wins)",
-      "Peabody Award (1994)"
+      "Emmy Award – Outstanding Dramatic Series (1994 – first genre show nominated)"
     ],
     "df-fresh": "True"
   },
@@ -847,11 +774,7 @@
     ],
     "poster": "./posters/steven-universe.jpg",
     "imdb_id": "tt2255546",
-    "awards": [
-      "GLAAD Media Award – Outstanding Kids & Family Programming (2019)",
-      "Annie Award – Outstanding Achievement in General Audience Animated TV (2020)",
-      "Peabody Award (2019)"
-    ]
+    "awards": []
   },
   {
     "title": "Stranger Things",
@@ -868,10 +791,7 @@
     "imdb_id": "tt4574334",
     "awards": [
       "Emmy Award – Outstanding Sound Editing (2016, 2017)",
-      "SAG Award – Outstanding Drama Ensemble (2017)",
-      "Critics' Choice Award – Best Drama Series (2017)",
-      "Golden Globe – Best Drama Series nomination (2017)",
-      "People's Choice Award – Favorite Drama (multiple years)"
+      "Golden Globe – Best Drama Series nomination (2017)"
     ]
   },
   {
@@ -885,10 +805,7 @@
     "awards": [
       "Emmy Award – Outstanding Drama Series (2020, 2022, 2023)",
       "Emmy Award – Outstanding Writing, Drama (Jesse Armstrong, 2018, 2021, 2023)",
-      "Golden Globe – Best Drama Series (2020)",
-      "SAG Award – Outstanding Drama Ensemble (2020)",
-      "Critics' Choice Award – Best Drama Series (2020, 2022, 2023)",
-      "Peabody Award (2021)"
+      "Golden Globe – Best Drama Series (2020)"
     ],
     "df-fresh": "True"
   },
@@ -901,10 +818,7 @@
     ],
     "poster": "./posters/taskmaster.jpeg",
     "imdb_id": "tt4805832",
-    "awards": [
-      "BAFTA – Best Entertainment Programme (2022)",
-      "National Television Award – Best Comedy Entertainment Programme (2021, 2022)"
-    ]
+    "awards": []
   },
   {
     "title": "Taxi",
@@ -934,9 +848,7 @@
     "awards": [
       "Emmy Award – Outstanding Comedy Series (2021, 2022, 2023)",
       "Emmy Award – Outstanding Lead Actor, Comedy (Jason Sudeikis, 2021, 2022, 2023)",
-      "Golden Globe – Best Comedy Series (2021)",
-      "SAG Award – Outstanding Comedy Ensemble (2022, 2023)",
-      "Critics' Choice Award – Best Comedy Series (2021, 2022)"
+      "Golden Globe – Best Comedy Series (2021)"
     ],
     "df-fresh": "True"
   },
@@ -951,10 +863,7 @@
     ],
     "poster": "./posters/the-bullwinkle-show.webp",
     "imdb_id": "tt0054523",
-    "awards": [
-      "Peabody Award (1961)",
-      "TV Land Award – Most Memorable Animated Character (Bullwinkle, 2004)"
-    ]
+    "awards": []
   },
   {
     "title": "The Crown",
@@ -968,9 +877,7 @@
     "awards": [
       "Emmy Award – Outstanding Drama Series (2021)",
       "Golden Globe – Best Drama Series (2017, 2021)",
-      "SAG Award – Outstanding Drama Ensemble (2021)",
-      "Emmy Award – Outstanding Lead Actress, Drama (Olivia Colman, 2021; Imelda Staunton nomination)",
-      "BAFTA – Best Drama Series nomination (multiple)"
+      "Emmy Award – Outstanding Lead Actress, Drama (Olivia Colman, 2021; Imelda Staunton nomination)"
     ],
     "df-fresh": "True"
   },
@@ -984,8 +891,7 @@
     "poster": "./posters/the-diplomat.webp",
     "imdb_id": "tt14574260",
     "awards": [
-      "Golden Globe – Best Actress, Drama (Keri Russell, 2024)",
-      "Critics' Choice Award – Best Drama Series nomination (2024)"
+      "Golden Globe – Best Actress, Drama (Keri Russell, 2024)"
     ],
     "df-fresh": "True"
   },
@@ -999,9 +905,7 @@
     ],
     "poster": "./posters/the-eternaut.webp",
     "imdb_id": "tt27184741",
-    "awards": [
-      "Netflix global debut – Top 10 in multiple countries (2025)"
-    ],
+    "awards": [],
     "df-fresh": "True"
   },
   {
@@ -1016,8 +920,7 @@
     "poster": "./posters/the-flintstones.jpg",
     "imdb_id": "tt0053502",
     "awards": [
-      "Golden Globe – Best TV Show (1961 – first animated series to win)",
-      "TV Guide – 50 Greatest TV Shows of All Time"
+      "Golden Globe – Best TV Show (1961 – first animated series to win)"
     ]
   },
   {
@@ -1031,11 +934,21 @@
     ],
     "poster": "./posters/the-k2.jpg",
     "imdb_id": "tt5996920",
-    "awards": [
-      "Asia Pacific Screen Award nomination",
-      "Korean Drama Awards nomination – Best Action Drama"
-    ]
+    "awards": []
   },
+  {
+    "title": "Agatha Christie's Marple",
+    "year": "2004–2013",
+    "genre": [
+      "Crime", 
+      "Drama", 
+      "Mystery"],
+    "poster": "./posters/marple.jpeg",
+    "imdb_id": "tt1734537",
+    "awards": [
+      "Emmy Award – Outstanding Special Class Program nomination (2005)"
+  ]
+},
   {
     "title": "The Marvelous Mrs. Maisel",
     "year": "2017–2023",
@@ -1043,14 +956,13 @@
       "Comedy",
       "Drama"
     ],
-    "poster": "/posters/the-marvelous-mrs-maisel.jpg",
+    "poster": "./posters/the-marvelous-mrs-maisel.jpg",
     "imdb_id": "tt5788792",
     "awards": [
       "Emmy Award – Outstanding Comedy Series (2018)",
       "Emmy Award – Outstanding Lead Actress, Comedy (Rachel Brosnahan, 2018)",
       "Golden Globe – Best Comedy Series (2018, 2019, 2023)",
-      "Golden Globe – Best Actress, Comedy (Rachel Brosnahan, 2018)",
-      "SAG Award – Outstanding Comedy Ensemble (2018, 2019)"
+      "Golden Globe – Best Actress, Comedy (Rachel Brosnahan, 2018)"
     ],
     "df-fresh": "True"
   },
@@ -1064,9 +976,22 @@
     "imdb_id": "tt0386676",
     "awards": [
       "Emmy Award – Outstanding Comedy Series (2006)",
-      "Golden Globe – Best Comedy Series (2006)",
-      "SAG Award – Outstanding Comedy Ensemble (2007, 2008)",
-      "Peabody Award (2006)"
+      "Golden Globe – Best Comedy Series (2006)"
+    ],
+    "df-fresh": "True"
+  },
+  {
+    "title": "The Morning Show",
+    "year": "2019-present",
+    "genre": [
+      "Comedy",
+      "Drama"
+    ],
+    "poster": "./posters/the-morning-show.jpg",
+    "imdb_id": "tt0386676",
+    "awards": [
+      "Primetime Emmy Awards – Outstanding Supporting Actor in a Drama Series (Billy Crudup, 2020)",
+      "Primetime Emmy Awards – Outstanding Supporting Actor in a Drama Series (Billy Crudup, 2024)"
     ],
     "df-fresh": "True"
   },
@@ -1080,11 +1005,7 @@
     "poster": "./posters/the-simpsons.jpg",
     "imdb_id": "tt0096697",
     "awards": [
-      "Emmy Award – Outstanding Animated Program (32 wins – all-time record)",
-      "Peabody Award (1996)",
-      "Guinness World Record – Longest-running American animated series",
-      "TV Guide – #1 Greatest TV Show of All Time",
-      "Annie Award (multiple wins)"
+      "Emmy Award – Outstanding Animated Program (32 wins – all-time record)"
     ]
   },
   {
@@ -1100,10 +1021,7 @@
     "awards": [
       "Emmy Award – Outstanding Drama Series (2004, 2007)",
       "Emmy Award – Outstanding Lead Actor (James Gandolfini, 1999, 2001, 2003)",
-      "Golden Globe – Best Drama Series (1999, 2000, 2001, 2007)",
-      "SAG Award – Outstanding Drama Ensemble (multiple wins)",
-      "Peabody Award (1999, 2000)",
-      "WGA Award – Best Drama Series (1999, 2000)"
+      "Golden Globe – Best Drama Series (1999, 2000, 2001, 2007)"
     ],
     "df-fresh": "True"
   },
@@ -1117,11 +1035,7 @@
     ],
     "poster": "./posters/the-walking-dead.webp",
     "imdb_id": "tt1520211",
-    "awards": [
-      "Saturn Award – Best Horror TV Series (multiple wins)",
-      "People's Choice Award – Favorite Cable TV Drama (multiple years)",
-      "Critics' Choice Television Award – Best Drama Series nomination"
-    ],
+    "awards": [],
     "df-fresh": "True"
   },
   {
@@ -1134,9 +1048,7 @@
     "imdb_id": "tt0200276",
     "awards": [
       "Emmy Award – Outstanding Drama Series (2000, 2001, 2002, 2003 – four consecutive wins, a record at the time)",
-      "Golden Globe – Best Drama Series (2000, 2001)",
-      "SAG Award – Outstanding Drama Ensemble (2000, 2001, 2002)",
-      "Peabody Award (2000)"
+      "Golden Globe – Best Drama Series (2000, 2001)"
     ]
   },
   {
@@ -1150,9 +1062,7 @@
     "imdb_id": "tt5555260",
     "awards": [
       "Golden Globe – Best Drama Series nomination (2017)",
-      "Emmy Award – Outstanding Lead Actress, Drama (Sterling K. Brown, multiple nominations)",
-      "SAG Award – Outstanding Ensemble, Drama (2017)",
-      "People's Choice Award – Drama of the Year (multiple wins)"
+      "Emmy Award – Outstanding Lead Actress, Drama (Sterling K. Brown, multiple nominations)"
     ]
   },
   {
@@ -1185,8 +1095,7 @@
     "awards": [
       "Emmy Award – Outstanding Drama Series nomination (2016, 2018)",
       "Emmy Award – Outstanding Supporting Actress, Drama (Thandiwe Newton, 2018)",
-      "Golden Globe – Best Drama Series nomination (2017, 2018)",
-      "Producers Guild Award – Outstanding Producer, Dramatic Television (2017)"
+      "Golden Globe – Best Drama Series nomination (2017, 2018)"
     ]
   },
   {
@@ -1198,20 +1107,18 @@
     "poster": "./posters/wings.webp",
     "imdb_id": "tt0098948",
     "awards": [
-      "Emmy Award – Outstanding Comedy Series nomination (multiple years)",
-      "People's Choice Award – Favorite New TV Comedy (1991)"
+      "Emmy Award – Outstanding Comedy Series nomination (multiple years)"
     ]
   },
   {
     "title": "Witch Hat Atelier",
     "year": "2026–present",
     "genre": [
+      "Animation",
       "Adventure"
     ],
     "poster": "./posters/witch-hat-atelier.webp",
-    "awards": [
-      "No major award wins recorded"
-    ]
+    "awards": []
   },
   {
     "title": "ZeroZeroZero",
@@ -1223,11 +1130,7 @@
     ],
     "poster": "./posters/zero-zero-zero.jpg",
     "imdb_id": "tt7335184",
-    "awards": [
-      "David di Donatello Award – Best TV Series (2020)",
-      "Silver Ribbon – Best TV Series (2021)",
-      "TCA Award nomination – Outstanding Achievement in Drama"
-    ],
+    "awards": [],
     "df-fresh": "True"
   }
 ]
