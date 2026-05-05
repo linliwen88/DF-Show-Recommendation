@@ -59,7 +59,8 @@
     "imdb_id": "tt0417299",
     "awards": [
       "Primetime Emmy Award – Outstanding Animated Program (2006)"
-    ]
+    ],
+    "df-fresh": "True"
   },
   {
     "title": "Battlestar Galactica",
@@ -369,7 +370,8 @@
     "awards": [
       "Emmy Award – Outstanding Comedy Series (2002)",
       "Emmy Award – Outstanding Lead Actress, Comedy (Jennifer Aniston, 2002)"
-    ]
+    ],
+    "df-fresh": "True"
   },
   {
     "title": "Frieren",
@@ -742,7 +744,7 @@
       "Drama",
       "Sci-Fi"
     ],
-    "poster": "./posters/start-trek-strange-new-worlds.webp",
+    "poster": "./posters/start-trek-strange-new-worlds.jpeg",
     "imdb_id": "tt12327578",
     "awards": []
   },
