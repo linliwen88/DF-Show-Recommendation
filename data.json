@@ -1134,5 +1134,66 @@
     "imdb_id": "tt7335184",
     "awards": [],
     "df-fresh": "True"
+  },
+  {
+    "title": "Ghost Whisperer",
+    "year": "2005–2010",
+    "genre": ["Drama", "Fantasy", "Mystery"],
+    "poster": "./posters/ghost-whisperer.jpeg",
+    "imdb_id": "tt0460644",
+    "awards": [
+      "Emmy Award – Outstanding Main Title Design nomination (2006)"
+    ]
+  },
+  {
+    "title": "Live from Baghdad",
+    "year": "2002",
+    "genre": ["Drama", "War", "TV Movie"],
+    "poster": "./posters/live-from-baghdad.jpeg",
+    "imdb_id": "tt0319758",
+    "awards": [
+      "Emmy Award – Outstanding Single Camera Picture Editing for a Miniseries, Movie or Special (2003)",
+      "Emmy Award – Outstanding Casting for a Miniseries, Movie or Special (2003)",
+      "Emmy Award – Outstanding Single Camera Sound Mixing for a Miniseries or Movie (2003)"
+    ]
+  },
+  {
+    "title": "Warm Springs",
+    "year": "2005",
+    "genre": ["Biography", "Drama", "TV Movie"],
+    "poster": "./posters/warm-springs.jpeg",
+    "imdb_id": "tt0423510",
+    "awards": [
+      "Emmy Award – Outstanding Made for Television Movie (2005)",
+      "Emmy Award – Outstanding Supporting Actress in a Miniseries or Movie – Jane Alexander (2005)",
+      "Emmy Award – Outstanding Art Direction for a Miniseries or Movie (2005)",
+      "Emmy Award – Outstanding Music Composition for a Miniseries, Movie or Special (2005)"
+    ]
+  },
+  {
+    "title": "The Life and Death of Peter Sellers",
+    "year": "2004",
+    "genre": ["Biography", "Comedy", "Drama", "Romance","TV Movie"],
+    "poster": "./posters/the-life-and-death-of-peter-sellers.jpeg",
+    "imdb_id": "tt0352520",
+    "awards": [
+      "Emmy Award – Outstanding Lead Actor in a Miniseries or Movie – Geoffrey Rush (2005)",
+      "Emmy Award – Outstanding Directing for a Miniseries, Movie or Dramatic Special – Stephen Hopkins (2005)",
+      "Emmy Award – Outstanding Writing for a Miniseries, Movie or Dramatic Special (2005)",
+      "Emmy Award – Outstanding Prosthetic Makeup for a Series, Miniseries, Movie or Special (2005)",
+      "Emmy Award – Outstanding Single Camera Picture Editing for a Miniseries or Movie (2005)",
+      "Golden Globe – Best Miniseries or Motion Picture Made for Television (2005)",
+      "Golden Globe – Best Performance by an Actor in a Miniseries or Motion Picture Made for Television – Geoffrey Rush (2005)"
+    ]
+  },
+  {
+    "title": "And Starring Pancho Villa as Himself",
+    "year": "2003",
+    "genre": ["Biography", "Drama", "History", "Western", "TV Movie"],
+    "poster": "./posters/and-starring-pancho-villa-as-himself.jpeg",
+    "imdb_id": "tt0337824",
+    "awards": [
+      "Primetime Emmy Award – Outstanding Sound Editing for a Miniseries, Movie or a Special (2004)"
+    ]
   }
 ]

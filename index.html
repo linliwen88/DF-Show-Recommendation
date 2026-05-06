@@ -24,6 +24,7 @@
     --color-musical:   #2E8B77;
     --color-thriller:  #C2547A;
     --color-western:   #E87B2C;
+    --color-tvmovie:   #7f481c;
     --color-animation: #E8B84B;
     --color-default:   #C0392B;
   }
@@ -430,7 +431,8 @@ const GENRES = [
   { name: 'Thriller', color: '#D81B60' },
   { name: 'War', color: '#37474F' },
   { name: 'Web Series', color: '#80DEEA' },
-  { name: 'Western', color: '#E87B2C' }
+  { name: 'Western', color: '#E87B2C' },
+  { name: 'TV Movie', color: '#7f481c' }
 ];
 
 // ── DATA ──
@@ -622,7 +624,8 @@ const GENRE_MAP = {
   "Thriller":    "Thriller",
   "War":         "War",
   "Web Series":  "Web Series",
-  "Western":     "Western"
+  "Western":     "Western",
+  "TV Movie":     "TV Movie"
 };
 
 const CANONICAL_PRIORITY = [
@@ -646,7 +649,8 @@ const CANONICAL_PRIORITY = [
   "Thriller",
   "War",
   "Web Series",
-  "Western"
+  "Western",
+  "TV Movie"
 ];
 
 const CANONICAL_COLORS = Object.fromEntries(GENRES.map(g => [g.name, g.color]));
